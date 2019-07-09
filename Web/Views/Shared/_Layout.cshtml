@@ -66,8 +66,7 @@
 </head>
 <body>
     <!-- Adding age verification -->
-    <!--
-    <section class="cann__age">
+    <section class="cann__age cann__age--is-visible" id="age">
         <section class="cann__age_container">
             <section class="row clearfix">
                 <picture class="col-xs-12"> 
@@ -79,16 +78,23 @@
             <h3 class="col-xs-12">Premium Cannabis and Concentrates</h3>
             <p class="col-xs-12">You must be 21 or older to enter this website.</p>
             <section class="col-xs-12 row clearfix">
-                <section class="col-xs-6">
-                    <a class="cann__age_button">No</a>
+                <section class="col-xs-6" id="verificated">
+                    <a class="cann__age_button">21 +</a>
                 </section>
                 <section class="col-xs-6">
-                    <a class="cann__age_button">Yes</a>
+                    <a href="https://lcb.wa.gov/mj2015/fact-sheet" class="cann__age_button">UNDER 21</a>
                 </section>
             </section>
         </section>
     </section>
-    -->
+    <script>
+        var verificated = document.getElementById("verificated");
+        var modal = document.getElementById("age");
+
+        verificated.onclick = function() {
+        modal.classList.remove("cann__age--is-visible");
+        };
+    </script>
     <!-- End -->
     @if (SiteClient.DemoEnabled)
     {
