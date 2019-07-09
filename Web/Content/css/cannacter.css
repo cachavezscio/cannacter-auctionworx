@@ -1,6 +1,6 @@
 /* Adjusting cannacter logo */
 .logo {
-    padding: 0px 0 0 15px;
+    padding: 0;
     max-width: 130px;
     display: inline-block;
 }
@@ -79,7 +79,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #fff;
+    background: url('https://www.cannacter.com/static/media/background.c9c9cdae.jpg') top #fff;
+    background-size: cover;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -93,15 +94,15 @@
     visibility: hidden;
     opacity: 0;
     z-index: -10;
-    -webkit-transition: all ease-out 250ms;
-    -o-transition: all ease-out 250ms;
-    transition: all ease-out 250ms;
 }
 
 .cann__age--is-visible {
     z-index: 99999;
     opacity: 1;
     visibility: visible;
+    -webkit-transition: all ease-out 250ms;
+    -o-transition: all ease-out 250ms;
+    transition: all ease-out 250ms;
 }
 
 .cann__age_container {
