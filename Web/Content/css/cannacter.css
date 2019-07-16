@@ -1,8 +1,18 @@
 /* Adjusting cannacter logo */
 .logo {
     padding: 0;
-    max-width: 130px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.cann__header_logo {
+    height: 30px;
+    width: auto;
+}
+
+.cann__header_logo img {
+    height: 30px;
+    width: auto;
 }
 
 .cann__header {
@@ -23,6 +33,15 @@
 .cann__header .navbar-default {
     border-bottom: none;
 }
+.nav-secondary input#FullTextQuery1 {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    height: 40px;
+}
+
+.nav-secondary form {
+    box-shadow: 0px 0px 10px 0px rgba(1,88,122,0.7);
+}
 
 .menu-list {
     right: 0;
@@ -30,6 +49,7 @@
 
 .cann__search {
     padding-left: 0;
+    position: relative;
 }
 
 .cann__header .browse-categories {
@@ -46,6 +66,14 @@
     top: 0;
     right: 0;
 }
+
+.cann__slogan {
+    height: 24px;
+    width: auto;
+    margin-top: 2px;
+    margin-left: 4px;
+}
+
 .cann__header .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
     background: #285f8f;
 }
@@ -172,5 +200,12 @@
         top: 100%;
         background: #00adef;
         z-index: 999;
+    }
+}
+
+
+@media screen and (max-width: 940px) {
+    .cann__slogan {
+        display: none;
     }
 }
