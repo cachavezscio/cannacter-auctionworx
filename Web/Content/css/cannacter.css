@@ -5,6 +5,11 @@
     align-items: flex-end;
     justify-content: flex-start;
 }
+
+.cann__canvas {
+    min-height: calc(100vh - 160px);
+}
+
 .cann__header_logo {
     height: 30px;
     width: auto;
@@ -37,6 +42,7 @@
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     height: 40px;
+    font-size: 12px;
 }
 
 .nav-secondary form {
@@ -71,7 +77,7 @@
     height: 24px;
     width: auto;
     margin-top: 2px;
-    margin-left: 4px;
+    margin-left: 80px;
 }
 
 .cann__header .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
@@ -188,6 +194,26 @@
 }
 .cann__age_button:last-child {
     margin-left: 4px;
+}
+
+.categories .panel-heading {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    padding: 16px 15px;
+}
+
+.categories .nav > li > a {
+    padding: 16px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    padding: 16px 15px;
+}
+
+.categories .nav-pills > li > a > .badge {
+    padding: 4px 7px;
+    font-size: 14px;
 }
 
 @media screen and (max-width: 680px) {

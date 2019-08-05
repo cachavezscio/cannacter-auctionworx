@@ -224,7 +224,7 @@
                     </div>
                     <div class="input-group">
                         <!-- @Html.TextBox(Fields.FullTextQuery, null, new { @size = 15, @class = "form-control input-sm ", @id = "FullTextQuery1", placeholder = Html.GlobalResourceString("EnterKeywords") }) -->
-                        @Html.TextBox(Fields.FullTextQuery, null, new { @size = 15, @class = "form-control input-sm ", @id = "FullTextQuery1", placeholder = "HOOK ME UP"})
+                        @Html.TextBox(Fields.FullTextQuery, null, new { @size = 15, @class = "form-control input-sm ", @id = "FullTextQuery1", placeholder = "HOOK ME UP (strains, products, etc.)"})
                         <div class="input-group-btn" role="group">
                             <button style="height: 40px" class="btn btn-default btn-sm" type="submit">@Html.GlobalResource("Search")</button>
                         </div>
@@ -238,7 +238,7 @@
         </div>
     </header>
 
-    <main>
+    <main class="cann__canvas">
         @RenderSection("Splash", required: false)
         <div class="container">
             @{MvcHtmlString everypageContent = Html.GetSiteContent("SiteHeader");}
@@ -275,7 +275,6 @@
                         @Html.ActionLink(Html.GlobalResource("TermsAndConditions"), "Terms", "Home")
                         @Html.ActionLink(Html.GlobalResource("PrivacyPolicy"), "PrivacyPolicy", "Home")
                         @Html.ActionLink(Html.GlobalResource("SiteMap"), "Sitemap", "Home")
-                         @Html.ActionLink(Html.GlobalResource("Age"), "Age", "Home")
                     </div>
                 </div>
             </div>

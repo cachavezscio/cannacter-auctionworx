@@ -27,6 +27,30 @@
                         @Html.Partial("CategoryNavigator", ViewData["CategoryNavigator"])
                     </ul>
                 </div>
+                <section class="panel panel-default hidden-xs hidden-sm">
+                 <div class="panel-heading">Emoji description</div>
+                 <ul class="nav nav-pills nav-stacked">
+                        
+                        <li>
+                            <a style="padding: 8px 15px; cursor: default;" role="description">
+                                <span>&#x1F4A1;</span>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Indoor</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="padding: 8px 15px; cursor: default;" role="description">
+                                <span>&#9728;&#65039;</span>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Outdoor</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="padding: 8px 15px; cursor: default;" role="description">
+                                <span>&#x1F525;</span>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Total Canna over 25%</p>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
                 <div class="dropdown visible-sm visible-xs">
                     <button class="dropdown-toggle btn btn-default btn-block" data-toggle="dropdown">
                         @Html.GlobalResource("CategoryMenu")&nbsp;<span class="caret"></span>
