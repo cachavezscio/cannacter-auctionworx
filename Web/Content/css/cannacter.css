@@ -47,6 +47,7 @@
 
 .nav-secondary form {
     box-shadow: 0px 0px 10px 0px rgba(1,88,122,0.7);
+    margin: 6px 25px 6px 10px;
 }
 
 .menu-list {
@@ -130,6 +131,10 @@
     z-index: -10;
 }
 
+.panel.highlight {
+    background-color: rgba(102, 223, 255, 0.4)!important;
+}
+
 .cann__age--is-visible {
     z-index: 99999;
     opacity: 1;
@@ -162,6 +167,11 @@
     max-width: 240px;
     width: 100%;
 }
+
+.cann__sign_in a {
+    color: #fff;
+}
+
 .cann__age_container h3,
 .cann__age_container p {
     text-align: center;
@@ -216,7 +226,31 @@
     font-size: 14px;
 }
 
+.auction__advice {
+    padding: 4px 15px;
+    padding: 4px 15px;
+    border-radius: 2px;
+    border: solid 1px white;
+    margin-top: -2px;
+    display: inline-block!important;
+}
+
+.cann__blue {
+    background: #00adef!important;
+}
+
+.galleryImage img {
+    width: 100%;
+    object-fit: cover;
+}
+
 @media screen and (max-width: 680px) {
+    .galleryImage {
+        height: 220px;
+    }
+    .galleryImage img {
+        max-height: 220px;
+    }
     .cann__search_label {
         display: none;
     }
@@ -227,11 +261,14 @@
         background: #00adef;
         z-index: 999;
     }
+    .cann__slogan {
+        display: none;
+    }
 }
 
 
-@media screen and (max-width: 940px) {
-    .cann__slogan {
-        display: none;
+@media screen and (max-width: 1180px) {
+    .auction__advice {
+        display: none!important;
     }
 }

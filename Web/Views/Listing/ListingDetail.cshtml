@@ -201,18 +201,11 @@
 {
     @Html.Partial("MakeOfferForm")
 }
+@{
+    List<CustomProperty> properties = Model.Properties.Where(p => p.Field.Group.Equals("Item") &&
+        !string.IsNullOrEmpty(p.Value)).OrderBy(cp => cp.Field.DisplayOrder).ToList();
+}
 <div class="row">
-    <div class="col-xs-12 col-md-7 detail__title__wrapper">
-        <span class="detail__status-label awe-rt-ColoredStatus">
-            @Html.Partial("Listing_StatusLabel")
-        </span>
-        <h3 class="detail__title">@Model.Title <img src="Content/Images/exclamation.png" class="awe-hidden awe-refresh-alert" onclick="location.reload(true);" title="@Html.GlobalResource("RefreshAlert")" /></h3>
-        @if (Model.Subtitle.Length > 0)
-        {
-            <h4 class="detail__subtitle">@Model.Subtitle</h4>
-        }
-        @Html.Partial("OptionsMenu")
-    </div>
     <div class="col-xs-12 col-md-5">
         <div class="panel panel-default">
             <div class="detail__context-wrapper ContextualStatus" id="ContextualStatus1">
@@ -279,6 +272,92 @@
             @Html.GetSiteContent("Literal_SocialNetworking")
         </div>
     </div>
+    <div class="col-xs-12 col-md-7 detail__title__wrapper">
+        <span class="detail__status-label awe-rt-ColoredStatus">
+            @Html.Partial("Listing_StatusLabel")
+        </span>
+        <h3 class="detail__title">@Model.Title <img src="Content/Images/exclamation.png" class="awe-hidden awe-refresh-alert" onclick="location.reload(true);" title="@Html.GlobalResource("RefreshAlert")" /></h3>
+        @if (Model.Subtitle.Length > 0)
+        {
+            <h4 class="detail__subtitle">@Model.Subtitle</h4>
+        }
+        @Html.Partial("OptionsMenu")
+    </div>
+
+    <div class="col-xs-12 col-md-7">
+        <div class="panel panel-default detail__description-panel">
+            <div class="panel-heading cann__blue">
+                @Html.GlobalResource("Description")
+            </div>
+            <div class="panel-body description">
+                @MvcHtmlString.Create(Model.Description) @*note: this string is expected to have safe html code*@
+            </div>
+        </div>
+    </div>
+     <div class="col-xs-12 col-md-7">
+        <div class="panel panel-default detail__data-panel">
+            <div class="panel-heading cann__blue">
+                @Html.GlobalResource("Details")
+            </div>
+
+            <div class="row">
+                @if (properties.Count > 0)
+                {
+                    <div class="col-xs-12">
+                        <ul class="detail__custom-fields list-unstyled">
+                            @foreach (CustomProperty property in properties)
+                                {
+                                <li>
+                                    <span class="detail__field-name">@Html.CustomFieldResource(property.Field.Name)</span>
+                                    <span class="detail__field-value">
+                                        @switch (property.Field.Type)
+                                        {
+                                            case CustomFieldType.Boolean:
+                                                @(bool.Parse(property.Value) ? Html.GlobalResource("Yes") : Html.GlobalResource("No"));
+                                                break;
+                                            case CustomFieldType.Decimal:
+                                                @(decimal.Parse(property.Value).ToString(Formats.Decimal, Html.GetCurrentCultureInfo()));
+                                                break;
+                                            case CustomFieldType.Int:
+                                                @(int.Parse(property.Value).ToString(Html.GetCurrentCultureInfo()));
+                                                break;
+                                            case CustomFieldType.DateTime:
+                                                @(DateTime.Parse(property.Value).ToString("D", Html.GetCurrentCultureInfo()));
+                                                break;
+                                            case CustomFieldType.Enum:
+                                                @Html.CustomFieldResource(property.Value);
+                                                break;
+                                            default:
+                                                @property.Value;
+                                                break;
+                                        }
+                                    </span>
+                                    @{MvcHtmlString helpText = Html.CustomFieldResourceOrDefault(string.Concat(property.Field.Name, "_Help"));}
+                                    @if (helpText != null)
+                                    {
+                                        <span class="default__field-help">
+                                            @Html.ToolTipButton(property.Field.Name + "_Help")
+                                        </span>
+                                    }
+                                    @if (helpText != null)
+                                    {
+                                        <div>
+                                            @Html.ToolTipContent(property.Field.Name + "_Help", helpText)
+                                        </div>
+                                    }
+                                </li>
+                            }
+
+                        </ul>
+                        <hr />
+                    </div>
+                }
+                <div class="col-xs-12">
+                    @Html.Partial("ListingDetail_GeneralData")
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-xs-12 col-md-7">
         <div class="awe-rt-ListingActionMessage"></div>
         @if (Model.Status == ListingStatuses.Preview)
@@ -293,15 +372,15 @@
         }
         @Html.Partial(Model.Type.Name + "Details", Model)
     </div>
+    <div class="col-xs-12 col-md-7 pull-right">
+        @Html.Partial("PublicQandA")
+    </div>
 </div>
-@{
-    List<CustomProperty> properties = Model.Properties.Where(p => p.Field.Group.Equals("Item") &&
-        !string.IsNullOrEmpty(p.Value)).OrderBy(cp => cp.Field.DisplayOrder).ToList();
-}
-<div class="row">
+
+<!-- <div class="row">
     <div class="col-xs-12 col-md-5">
         <div class="panel panel-default detail__data-panel">
-            <div class="panel-heading">
+            <div class="panel-heading cann__blue">
                 @Html.GlobalResource("Details")
             </div>
 
@@ -366,7 +445,7 @@
 
     <div class="col-xs-12 col-md-7">
         <div class="panel panel-default detail__description-panel">
-            <div class="panel-heading">
+            <div class="panel-heading cann__blue">
                 @Html.GlobalResource("Description")
             </div>
             <div class="panel-body description">
@@ -374,12 +453,9 @@
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
-        @Html.Partial("PublicQandA")
-    </div>
-</div>
+</div> -->
+<!-- <div class="row">
+</div> -->
 
 @if (nonImageMedia.Count() > 0)
 {

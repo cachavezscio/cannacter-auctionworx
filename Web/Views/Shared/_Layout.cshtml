@@ -4,6 +4,7 @@
     <base href="@Html.Base()" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00adef" />
     <title>@(string.IsNullOrEmpty(ViewBag.SiteTitle) ? SiteClient.Settings[SiteProperties.SiteTitle] : ViewBag.SiteTitle)</title>
     @if (IsSectionDefined("metaContent"))
     {
@@ -69,13 +70,13 @@
     <section class="cann__age" id="age">
         <section class="cann__age_container">
             <section class="row clearfix">
-                <picture class="col-xs-12"> 
+                <picture class="col-xs-12">
                     <source sizes="100vw" srcset="@SiteClient.Settings["SiteLogoFileName"]" media="(min-width: 769px)" />
                     <source sizes="100vw" srcset="@SiteClient.Settings["MobileLogoFileName"]" media="(max-width: 768px)" />
                     <img src="@SiteClient.Settings["SiteLogoFileName"]" alt="@SiteClient.Settings["FriendlySiteName"]" class="img-responsive" />
                 </picture>
             </section>
-            <h3 class="col-xs-12">Premium Cannabis and Concentrates</h3>
+            <h3 class="col-xs-12">The Cannabis Network</h3>
             <p class="col-xs-12">You must be 21 or older to enter this website.</p>
             <section class="col-xs-12 row clearfix">
                 <section class="col-xs-6" id="verificated">
@@ -133,14 +134,14 @@
                 }
                 <img class="cann__slogan" src="~/Content/Images/cannacter/cann-slogan.png" alt="Fair-Market Cannabis Exchange"/>
             </div>
-            
+
             @if (Context.User.IsInRole("Admin"))
             {
                 <div class="admin clearfix hidden-xs">
                     <a href="@Url.Action(MVC.IndexAction, MVC.AdminController)" class="btn btn-default">@Html.GlobalResource("GoToAdminControlPanel") <span class="glyphicon glyphicon-cog"></span> </a>
                     @if (!string.IsNullOrEmpty(Html.GetCookie(MVC.FBOUserName)))
                     {
-                        @Html.ButtonLink(Html.GlobalResource("StopImpersonating"), MVC.StopImpersonatingAction, MVC.AccountController, 
+                        @Html.ButtonLink(Html.GlobalResource("StopImpersonating"), MVC.StopImpersonatingAction, MVC.AccountController,
                             null, new { @class = "btn btn-danger" })
                     }
                 </div>
@@ -214,6 +215,7 @@
             </header>
             <div class="nav-secondary clearfix cann__search">
                 @using (Html.BeginForm("Search", "Listing", FormMethod.Get, new { @class = "pull-right form-inline" }))
+
                 {
                     <div class="btn-group pull-right" role="group">
                         <a class="dropdown-toggle btn btn-sm search" style="height: 40px;width: 40px;line-height: 30px;border-top-right-radius: 4px;
@@ -233,6 +235,12 @@
 
                 <ul class="nav nav-pills">
                     @Html.GetSiteContent("Literal_SubNavigation")
+                    <!-- <li class="auction__advice">
+                        <span style="font-weight: bold; color: white; font-size: 14px;">&#x23F0; Auctions begin on Monday mornings and end on Tuesday at 4:20 pm / pst</span>
+                    </li> -->
+                     <li class="auction__advice">
+                        <span style="font-weight: bold; color: white; font-size: 14px;">&#128276;&#x1F514; Nothing for Sale</span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -456,7 +464,7 @@
         window.onload = function() {
             checkCookie()
         };
-    
+
 
         function setCookie(cname,cvalue,exdays) {
         var d = new Date();
@@ -493,6 +501,15 @@
                 };
             }
         }
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147337550-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147337550-1');
 </script>
 </body>
 </html>

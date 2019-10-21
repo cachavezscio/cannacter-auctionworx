@@ -8,7 +8,7 @@
     bool isSeller = User.Identity.IsAuthenticated && (Html.FBOUserName() == Model.OwnerUserName);
     var questions = ListingClient.GetQuestionsByListingId(User.Identity.IsAuthenticated ? User.Identity.Name : "Anonymous", Model.ID);
     <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading cann__blue">
             @Html.GlobalResource("QuestionsAndAnswers")
             @if (Model.Status == ListingStatuses.Active || Model.Status == ListingStatuses.Preview)
             {
@@ -41,7 +41,7 @@
                 }
                 else if (!User.Identity.IsAuthenticated)
                 {
-                    <span class="pull-right awe-rt-hideable awe-rt-ShowStatusActive awe-rt-ShowStatusPreview hidden-xs">
+                    <span class="pull-right awe-rt-hideable awe-rt-ShowStatusActive awe-rt-ShowStatusPreview hidden-xs cann__sign_in">
                         @Html.ActionLink(Html.GlobalResource("SignInToPostAQuestion"), MVC.LogOnAction, MVC.AccountController,
                                  new { returnUrl = resumeUrl }, null)
                     </span>
@@ -325,7 +325,7 @@
         <script>
             function classifiedQASubmit() {
                 $('#SubmitPublicQA').addClass('disabled');
- 
+
                 $.ajax({
                     url: '@Html.GetActionUrl(MVC.PostListingQuestionAction, MVC.ListingController, null)',
                     type: "post",
@@ -348,7 +348,7 @@
             }
 
             function goToMessageBody() {
-            
+
                 $('html, body').animate({ scrollTop: $('#MessageBody').offset().top - 50 }, 'fast');
                 document.getElementById("MessageBody").focus();
             };

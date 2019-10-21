@@ -7,7 +7,7 @@
         }
     }
 }
-@Html.Partial("RandomTopBanners")
+
 
 @{
     bool showCategories = bool.Parse(SiteClient.Settings["HomepageCategories"]);
@@ -28,9 +28,44 @@
                     </ul>
                 </div>
                 <section class="panel panel-default hidden-xs hidden-sm">
-                 <div class="panel-heading">Emoji description</div>
+                 <div class="panel-heading" style="background: #00adef">Featured Farms</div>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="https://www.instagram.com/billowsofhaze/" target="_blank" style="padding: 8px 15px; cursor: pointer;" role="description">
+                                <span><img width="20" src="./../../Content/Images/cannacter/ico-cannacter.png" alt="Cannacter"></img></span>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Billows of Haze</p>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="panel panel-default hidden-xs hidden-sm">
+                 <div class="panel-heading">Fresh Flower</div>
                  <ul class="nav nav-pills nav-stacked">
-                        
+
+                        <li>
+                            <a href="https://www.instagram.com/billowsofhaze/" target="_blank" style="padding: 8px 15px; cursor: pointer;" role="description">
+                                <span><img width="20" src="./../../Content/Images/cannacter/ico-cannacter.png" alt="Cannacter"></img></span>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Billows of Haze</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/silvertrizzle/" target="_blank" style="padding: 8px 15px; cursor: pointer;" role="description">
+                                <span><img width="20" src="./../../Content/Images/cannacter/ico-cannacter.png" alt="Cannacter"></img></span>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Silver Trees</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/unafloraseattle/" target="_blank" style="padding: 8px 15px; cursor: pointer;" role="description">
+                                <span><img width="20" src="./../../Content/Images/cannacter/ico-cannacter.png" alt="Cannacter"></img></span>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Una Flora</p>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="panel panel-default hidden-xs hidden-sm">
+                 <div class="panel-heading">Legend</div>
+                 <ul class="nav nav-pills nav-stacked">
+
                         <li>
                             <a style="padding: 8px 15px; cursor: default;" role="description">
                                 <span>&#x1F4A1;</span>
@@ -40,17 +75,38 @@
                         <li>
                             <a style="padding: 8px 15px; cursor: default;" role="description">
                                 <span>&#9728;&#65039;</span>
-                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Outdoor</p>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Sungrown</p>
                             </a>
                         </li>
                         <li>
                             <a style="padding: 8px 15px; cursor: default;" role="description">
                                 <span>&#x1F525;</span>
-                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Total Canna over 25%</p>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">Total cannabinoids over 25%</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="padding: 8px 15px; cursor: default;" role="description">
+                                <span style="
+                                    display: inline-block;
+                                    -webkit-transform: translateX(-3px) rotate(45deg);
+                                    -ms-transform: translateX(-3px) rotate(45deg);
+                                    transform: translateX(-3px) rotate(45deg);
+                                    -webkit-transform-origin: 50% 50%;
+                                    -ms-transform-origin: 50% 50%;
+                                    transform-origin: 50% 50%"
+                                >&#x274C;</span>
+                                <p style="display: inline-block; margin-bottom: 0; font-size: 12px; color: #333; ">CBD</p>
                             </a>
                         </li>
                     </ul>
                 </section>
+                <!-- <section class="panel panel-default hidden-xs hidden-sm">
+                 <div class="panel-heading">Pay me!</div>
+                <section class="paypalCont" style="padding: 1rem;">
+                    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+                    <script>paypal.Buttons().render('.paypalCont');</script>
+                </section>
+                </section> -->
                 <div class="dropdown visible-sm visible-xs">
                     <button class="dropdown-toggle btn btn-default btn-block" data-toggle="dropdown">
                         @Html.GlobalResource("CategoryMenu")&nbsp;<span class="caret"></span>
@@ -85,7 +141,7 @@
     }
 }
 <div class="@IndexCssColumns">
-
+    @Html.Partial("RandomTopBanners")
     @if (SiteClient.TextSetting(SiteProperties.HomepageContent) != "none")
     {
         if (SiteClient.EnableEvents)

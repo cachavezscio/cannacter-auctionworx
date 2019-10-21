@@ -29,7 +29,7 @@
     <div class="galleryContainer clearfix">
         @foreach (Listing listing in listings)
         {
-            <div class="col-xs-6 @GalleryCssColumns galleryUnit" data-listingid="@listing.ID">
+            <div class="col-xs-12 @GalleryCssColumns galleryUnit" data-listingid="@listing.ID">
                 @Html.Partial(listing.Type.Name + "Thumbnail", listing)
             </div>
         }
