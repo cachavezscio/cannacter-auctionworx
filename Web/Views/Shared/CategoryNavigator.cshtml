@@ -30,6 +30,7 @@
         counts = CommonClient.GetCategoryCounts(new List<string>(0), statuses, string.Empty);
     }
 }
+<li class="awe-category-back-link"></li>
 @foreach (Category c in categories)
 {
     if (showZeroCountCategories || !((bool)(ViewData["ValidCategoryCounts"] ?? false)) || counts.ContainsKey(c.ID))
@@ -85,6 +86,7 @@
             categoryUrl = Html.GetActionUrl(MVC.BrowseAction, MVC.ListingController, routes);
         }
 
+
         <li>
             <a href="@categoryUrl">
                 @Html.LocalizedCategoryName(c.Name)
@@ -107,7 +109,6 @@
 }
 @if (categories.Count <= 0)
 {
-    <li class="awe-category-back-link"></li>
 }
 <script>
     $(document).ready(function () {

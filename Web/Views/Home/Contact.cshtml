@@ -7,7 +7,11 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-xs-12 col-md-6">
+                    <div class="col-xs-12 col-md-4">
+                        @Html.GetSiteContent("ContactUs")
+                        <img style="width: 100%; border-radius: 4px;" src="~/Content/Images/cannacter/mex.jpg" loading="lazy" alt="Contact Us, Steffo is waiting your questions"/>
+                    </div>
+                    <div class="col-xs-12 col-md-8">
                         <span class="help-block text-right">
                             @Html.GlobalResource("RequiredFields", "<span class=\"required\"></span>")
                         </span>
@@ -59,11 +63,8 @@
                             </div>
                     }
                     </div>
-                    <div class="col-xs-12 col-md-6">
-                        @Html.GetSiteContent("ContactUs")
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div> 
+</div>

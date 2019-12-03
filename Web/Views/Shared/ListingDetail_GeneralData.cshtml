@@ -8,7 +8,7 @@
     else
     {
         <li>
-           <span> 
+           <span>
             <strong>
                 @Html.GlobalResource("ItemNumber", Model.ID)
             </strong>
@@ -21,7 +21,7 @@
             <strong>
                 @Html.Resource("FixedPriceListing, QtyAvailable")
             </strong>
-            <span class="awe-rt-Quantity">@Html.LocalInteger(Model.CurrentQuantity)</span>
+            <!-- <span class="awe-rt-Quantity">@Html.LocalInteger(Model.CurrentQuantity)</span> -->
         </li>
     }
     @if (!Model.IsGoodTilCanceled())

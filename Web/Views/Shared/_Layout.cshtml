@@ -162,6 +162,12 @@
                     <li>
                         <a href="@Html.Base()">@Html.GlobalResource("Home")</a>
                     </li>
+                    <!-- <li>
+                        <a href="https://www.topshelfdata.com/" target="_blank" rel="noopener noreferrer">@Html.GlobalResource("Analytics")</a>
+                    </li>
+                    <li>
+                        <a href="https://www.leafly.com/" target="_blank" rel="noopener noreferrer">@Html.GlobalResource("Education")</a>
+                    </li> -->
                     @if (!SiteClient.EnableEvents || (SiteClient.EnableEvents && SiteClient.TextSetting(SiteProperties.HomepageContent) != "browse"))
                     {
                         <li class="dropdown">
@@ -238,10 +244,10 @@
                     <!-- <li class="auction__advice">
                         <span style="font-weight: bold; color: white; font-size: 14px;">&#x23F0; Auctions begin on Monday mornings and end on Tuesday at 4:20 pm / pst</span>
                     </li> -->
-                     <li class="auction__advice">
-                        <span style="font-weight: bold; color: white; font-size: 14px;">&#128276;&#x1F514; Nothing for Sale</span>
-                    </li>
                 </ul>
+                <div class="auction__advice">
+                    <span style="font-weight: bold; color: white; font-size: 14px; font-style: italic;">Purveyors of fine craft cannabis and CBD</span>
+                </div>
             </div>
         </div>
     </header>
